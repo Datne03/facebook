@@ -24,9 +24,9 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
-    public List<UserDTO> searchUsers(String keyword) {
-        List<UserDTO> users = userRepository.findByUsernameContaining(keyword);
-        return users.stream().map(user -> new UserDTO()).collect(Collectors.toList());
+    public List<User> searchUsers(String keyword) {
+        List<User> users = userRepository.findByUsernameContaining(keyword);
+        return users.stream().filter(u -> u.getUsername().contains(keyword)).collect(Collectors.toList());
     }
 
     @Transactional

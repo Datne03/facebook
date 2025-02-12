@@ -14,6 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByUsername(String username);
     boolean existsByEmail(String email);
     Optional<User> findByUsernameOrEmail(String username, String email);
-    List<UserDTO> findByUsernameContaining(String username); // Tìm kiếm bạn bè theo tên
+    List<User> findByUsernameContaining(String username); // Tìm kiếm bạn bè theo tên
 
 }

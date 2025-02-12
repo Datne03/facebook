@@ -1,6 +1,7 @@
 package jwd.practice.facebook.controller;
 
 import jwd.practice.facebook.dto.response.UserDTO;
+import jwd.practice.facebook.entity.User;
 import jwd.practice.facebook.service.IService.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/search")
-    public ResponseEntity<List<UserDTO>> searchUsers(@RequestParam String keyword) {
+    public ResponseEntity<List<User>> searchUsers(@RequestParam String keyword) {
         return ResponseEntity.ok(userService.searchUsers(keyword));
     }
 
